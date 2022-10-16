@@ -10,6 +10,7 @@ const AxiosAPI = (email, password) => {
   const config = {
     method: 'post',
     url: 'https://user-auth-v1.herokuapp.com/register',
+    body: JSON.stringify({id: '200'}),
     data: {
       email,
       password,
@@ -18,13 +19,16 @@ const AxiosAPI = (email, password) => {
 
   axios(config)
     .then((response) => {
-      setRegister(true) 
-      console.log(response);      
-    })
-    .catch((error) => {
-      error = new Error('Registration failed');
-      console.log(error);
-    })
+      if (response.ok) {
+        return response.json();
+      } 
+      throw new Error('Registration failed!');
+    }, networkError => console.log(networkError.message)
+    )
+    .then(jsonResponse => {
+      return jsonResponse;
+    });
+
   };
 
 export default AxiosAPI;

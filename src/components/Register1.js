@@ -34,8 +34,50 @@ export default function Register () {
   };
 
   return (
-    <h2 className="name">Register</h2>
-    
+    <>
+      <h2 className="name">Register</h2>
+      {/* Email */}
+      <Form 
+      className="p-3 mt-3"
+      onSubmit={handleSubmit}
+      >
+        <div className="form-field d-flex align-items-center">
+          <input 
+            type='text'
+            name='Email'
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+            placeholder='Enter email'
+          />
+        </div>
+
+        {/* Password */}
+        <div className="form-field d-flex align-items-center">
+          <input 
+            type='password'
+            name='Password'
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+            placeholder='Enter password'
+          />
+
+          {/* Confirm Password */}
+          <input 
+            type='password'
+            name='Confirm Password'
+            value={confirmPassword}
+            onChange={ () => {
+                if (password === confirmPassword) {
+                  setConfirmPassword(confirmPassword);
+                } else {
+                  alert("Passwords do not match");
+                }
+              }
+            }
+           />
+        </div>
+      </Form>
+    </>
   )
 
 };

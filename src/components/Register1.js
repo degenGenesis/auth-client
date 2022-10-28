@@ -12,7 +12,7 @@ export default function Register () {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    alert("Submitted");
+    // alert("Submitted");
     const config = {
       method: "post",
       url: "https://user-auth-v1.herokuapp.com/register",
@@ -35,11 +35,11 @@ export default function Register () {
 
   return (
     <>
-      <h2 className="name">Register</h2>
+      <h2 className="name">Sign Up!</h2>
       {/* Email */}
       <Form 
       className="p-3 mt-3"
-      onSubmit={handleSubmit}
+      onSubmit={(e) => handleSubmit(e)}
       >
         <div className="form-field d-flex align-items-center">
           <input 
@@ -55,27 +55,55 @@ export default function Register () {
         <div className="form-field d-flex align-items-center">
           <input 
             type='password'
-            name='Password'
+            name='password'
             value={password}
             onChange={(e) => setPassword(e.target.value)}
             placeholder='Enter password'
           />
+        </div>
 
           {/* Confirm Password */}
+        {/* <div className="form-field d-flex align-items-center">
           <input 
             type='password'
             name='Confirm Password'
             value={confirmPassword}
+            placeholder='Confirm password'
             onChange={ () => {
                 if (password === confirmPassword) {
                   setConfirmPassword(confirmPassword);
                 } else {
-                  alert("Passwords do not match");
+                  // ("Passwords do not match");
                 }
               }
             }
-           />
+          />
+        </div> */}
+
+        <Button 
+          className="btn mt-3"
+          type="submit"
+          variant="primary"
+          onClick={(e) => handleSubmit(e)}
+        >
+          Submit
+        </Button>
+        <div className="text-center fs-6">
+          <Nav.Link variant='link'>
+            Forgot password?
+          </Nav.Link> 
+              or 
+          <Nav.Link href='/Login' variant='link'>
+            Sign In
+          </Nav.Link>
         </div>
+
+        {/* display success message */}
+        {/* {register ? (
+          <p className='text-success'>Registration successful!</p>
+         ) : (
+          <p className='text-danger'>Registration failed!</p>
+        )} */}
       </Form>
     </>
   )

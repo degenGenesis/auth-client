@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
-import { Formik, Form, useField, ErrorMessage, Field } from 'formik';
+import { BrowserRouter as Router, Routes, Switch, Route, Link, BrowserRouter } from "react-router-dom";
+import { Formik, useField, ErrorMessage, Field } from 'formik';
 import * as Yup from 'yup';
-import { Nav } from 'react-bootstrap';
+import { Nav, Form, Button } from 'react-bootstrap';
 import axios from 'axios';
 
 import '../App.css';
@@ -67,22 +68,28 @@ const Login = () => {
         </div>
 
         {/* Submit button */}
-        <button 
+        <Button 
           className='btn mt-3'
           variant='primary'
           type='submit'
           onClick={(e) => handleSubmit(e)}
         >
           Submit
-        </button>
-        <div className="text-center fs-6">
-          <Nav.Link variant='link'>
-            Forgot password?
-          </Nav.Link> 
-              or 
-          <Nav.Link href='/Login' variant='link'>
-            Sign Up
-          </Nav.Link>
+        </Button>
+        <div className="links">
+          <div className="text-center fs-6">
+            <Link variant='link'>
+              Forgot password?
+            </Link>
+          </div>
+          <div className="text-center fs-6">
+                or
+          </div> 
+          <div className="text-center fs-6">
+            <Link to='/Login' variant='link'>
+              Sign Up
+            </Link>
+          </div>
         </div>
       </Form>
     </>

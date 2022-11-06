@@ -1,9 +1,11 @@
-import React, { useState } from 'react';
-import { useFormik } from 'formik';
+import React from 'react';
+import { Formik, Form, useField, ErrorMessage, Field } from 'formik';
 import * as Yup from 'yup';
-import { Button, Nav } from 'react-bootstrap';
+import { Nav } from 'react-bootstrap';
 
+import axios from 'axios';
 import '../App.css';
+import Login from './Login';
 
 /* ---> validation for use w/o Yup library <--- */
 /* const validate = (values) => {
@@ -29,24 +31,44 @@ import '../App.css';
   return errors;
 }; */
 
+const TextInput = ({ label, ...props }) => {
+  const [field, meta] = useField(props);
+  return (
+    <>
+      <label htmlFor={props.id || props.name}>{label}</label>
+      <input className='text-input' {...field} {...props} />
+      {meta.touched && meta.error ? (
+        <div className='error'>{meta.error}</div>
+      ) : null}
+    </>
+  );
+}
+
 const Register = () => {
 
-  const formik = useFormik({
+  /* ---> for use w/o Yup library & w/o <Formik /> component <--- */
+   /* const formik = useFormik({
     initialValues: {
       email: '',
       password: '',
       confirmPassword: '',
-    },
+    }, */
      
     /* ---> for use w/o Yup library <--- */
     // validate,
 
-    /* ---> for use w/ Yup library <--- */
-    validationSchema
+    /* ---> for use w/ Yup library & w/o <Formik /> component <--- */
+    /* validationSchema: Yup.object({
+      email: Yup.string().email('Invalid email address').required('Email required'),
+      password: Yup.string().min(8, 'Password must be at least 8 characters').required('Password required'),
+      confirmPassword: Yup.string().oneOf([Yup.ref('password'), null], 'Passwords must match').required('Confirm password'),
+    }),
     onSubmit: values => {
       alert(JSON.stringify(values, null, 2));
     },
   });
+  
+/* ---> standard React useState state management <--- */
 /*  const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
@@ -58,75 +80,101 @@ const handleSubmit = (e) => {
 }; */
 
   return (
-    <>
-      <div>
-        <h2 className='name'>Sign Up!</h2>
-        {/* Email */}
-        <form 
-          className='p-3 mt-3'
-          onSubmit={formik.handleSubmit}
+    <Formik
+      initialValues={{
+        email: '',
+        password: '',
+        confirmPassword: '',
+      }}
+      validationSchema={Yup.object({
+        email: Yup.string()
+          .email('Invalid email address')
+          .required('Email required'),
+        
+        password: Yup.string()
+          .min(8, 'Password must be at least 8 characters')
+          .required('Password required'),
+        
+        // confirmPassword: Yup.string()
+        //   .oneOf([Yup.ref('password'), null], 'Passwords must match')
+        //   .required('Confirm password'),
+      })}
+      onSubmit={async (values, actions) => {
+        try {
+          const response = await axios({
+            method: 'post',
+            url: 'https://user-auth-v1.herokuapp.com/register',
+            data: {
+              email: values.email,
+              password: values.password,
+            }
+          })
+        } catch (error) {
+          console.log(error);
+          actions.setSubmitting(false);
+        }
+      }
+    }
+    > 
+      
+        <Form 
+          className='p-3 mt-4'
         >
-          {formik.touched.email && formik.errors.email ? <div className='errors'>{formik.errors.email}</div> : null}
+          <h2 className='name'>Sign Up!</h2>        
+          {/* Email */}
           <div className='form-field d-flex align-items-center'>
-            <label className='far fa-user'>👤</label>
-            <input
-              id='email'             
-              type='email'  
-              name='email' 
-              value={formik.values.email}
-              onChange={formik.handleChange}
-              onBlur={formik.handleBlur}
+            <label htmlFor='email'>👤</label>
+            <Field             
+              name='email'
+              type='email'
               placeholder='Enter email' 
             />
           </div>
-          
+          <div className='errors'>
+            <ErrorMessage className='errors' name='email' />
+          </div>
+
           {/* Password */}
-          {formik.touched.password && formik.errors.password ? <div className='errors'>{formik.errors.password}</div> : null}
           <div className='form-field d-flex align-items-center'>          
-            <label className='far fa-key'>🔑</label>
-            <input
-              id='password' 
-              className='far fa-user'              
-              type='password' 
-              name='password'
-              value={formik.values.password}
-              onChange={formik.handleChange}
-              onBlur={formik.handleBlur} 
+            <label htmlFor='password'>🔑</label>
+            <Field 
+              name='password'              
+              type='password'
               placeholder='Enter password' 
             />
           </div>
-          
+          <div className='errors'>
+            <ErrorMessage className='errors' name='password' />
+          </div>
+
           {/* Confirm Password */}
-          {formik.touched.confirmPassword && formik.errors.confirmPassword ? <div className='errors'>{formik.errors.confirmPassword}</div> : null}
-          <div className='form-field d-flex align-items-center'>          
-          <label className='far fa-key'>🔑</label>
-            <input
-              id='confirmPassword'
-              type='password' 
+          {/* <div className='form-field d-flex align-items-center'>          
+            <label htmlFor='confirmPassword'>🔑</label> */}
+            {/* ---> for use w/ <Formik /> component <--- */}
+            {/* <Field
               name='confirmPassword'
-              value={formik.values.confirmPassword}
-              onChange={formik.handleChange}
-              onBlur={formik.handleBlur} 
+              type='password'
               placeholder='Confirm password' 
             />
           </div>
+          <div className='errors'>  
+            <ErrorMessage name='confirmPassword' />
+          </div> */}
 
           {/* Submit button */}
-          <Button 
+          <button 
             className='btn mt-3' 
-            variant='primary'
             type='submit'
-            onClick={formik.handleSubmit}
           >
             Submit
-          </Button>
-        </form>
-      </div> 
-      <div class="text-center fs-6">
-            <Nav.Link variant='link'>Forgot password?</Nav.Link> or 
-            <Nav.Link variant='link'>Sign In</Nav.Link>
-        </div>
-    </>
+          </button>
+          <div className="text-center fs-6">
+                <Nav.Link variant='link'>Forgot password?</Nav.Link> or 
+                <Nav.Link href='/login' variant='link'>Sign In</Nav.Link>
+          </div>
+        </Form>
+       
+    </Formik>
   )
 };
 

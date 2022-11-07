@@ -109,9 +109,9 @@ const handleSubmit = (e) => {
               password: values.password,
             }
           })
+          console.log(response.data);
         } catch (error) {
           console.log(error);
-          actions.setSubmitting(false);
         }
       }
     }

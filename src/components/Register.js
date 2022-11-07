@@ -44,7 +44,7 @@ const TextInput = ({ label, ...props }) => {
   );
 }
 
-const Register = () => {
+export const Register = () => {
 
   /* ---> for use w/o Yup library & w/o <Formik /> component <--- */
    /* const formik = useFormik({
@@ -95,9 +95,9 @@ const handleSubmit = (e) => {
           .min(8, 'Password must be at least 8 characters')
           .required('Password required'),
         
-        // confirmPassword: Yup.string()
-        //   .oneOf([Yup.ref('password'), null], 'Passwords must match')
-        //   .required('Confirm password'),
+        confirmPassword: Yup.string()
+          .oneOf([Yup.ref('password'), null], 'Passwords must match')
+          .required('Confirm password'),
       })}
       onSubmit={async (values, actions) => {
         try {
@@ -148,10 +148,10 @@ const handleSubmit = (e) => {
           </div>
 
           {/* Confirm Password */}
-          {/* <div className='form-field d-flex align-items-center'>          
-            <label htmlFor='confirmPassword'>🔑</label> */}
+          <div className='form-field d-flex align-items-center'>          
+            <label htmlFor='confirmPassword'>🔑</label>
             {/* ---> for use w/ <Formik /> component <--- */}
-            {/* <Field
+            <Field
               name='confirmPassword'
               type='password'
               placeholder='Confirm password' 
@@ -159,7 +159,7 @@ const handleSubmit = (e) => {
           </div>
           <div className='errors'>  
             <ErrorMessage name='confirmPassword' />
-          </div> */}
+          </div>
 
           {/* Submit button */}
           <button 
@@ -177,5 +177,3 @@ const handleSubmit = (e) => {
     </Formik>
   )
 };
-
-export default Register;

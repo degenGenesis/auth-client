@@ -19,7 +19,10 @@
   text-decoration-skip-ink: "auto";
 } */
 
-
+.links {
+  text-align: center;
+  margin-top: 30px;
+}
 
 .form-container {
     display: flex;

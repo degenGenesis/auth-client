@@ -5,6 +5,7 @@ import { Routes, Route } from "react-router-dom";
 import Landing from "./pages/Landing.jsx";
 import Register from "./pages/Register.jsx";
 import Login from "./pages/Login.jsx";
+import Reset from "./pages/Reset.jsx";
 
 import "./App.css";
 
@@ -47,6 +48,7 @@ const App = () => {
           <Route path='/' element={<Landing />} />
           <Route path='/register' element={<Register />} />
           <Route path='/login' element={<Login />} />
+          <Route path='/reset' element={<Reset />} />
         </Routes>
         </div>
       </div>

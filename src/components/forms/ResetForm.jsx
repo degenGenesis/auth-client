@@ -54,7 +54,7 @@ const ResetForm = () => {
               </div>
                  or
               <div className='text-center fs-6'>
-                <Link className='nav-links' to="/signup">Sign Up</Link>
+                <Link className='nav-links' to="/register">Sign Up</Link>
               </div>
             </div>
           </Form>

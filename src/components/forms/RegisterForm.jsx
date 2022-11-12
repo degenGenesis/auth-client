@@ -1,7 +1,8 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { Formik, Form, useField, ErrorMessage, Field } from 'formik';
 import * as Yup from 'yup';
-import { Nav } from 'react-bootstrap';
+
 
 import axios from 'axios';
 import '../../App.css';
@@ -131,9 +132,13 @@ const handleSubmit = (e) => {
           >
             Submit
           </button>
-          <div className="text-center fs-6">
-                <Nav.Link variant='link'>Forgot password?</Nav.Link> or 
-                <Nav.Link href='/login' variant='link'>Sign In</Nav.Link>
+          <div className="links">
+            <div className='text-center fs-6'>
+              <Link className='nav-links' to="/login">Forgot Password?</Link>
+            </div>or 
+            <div className='text-center fs-6'>
+              <Link className='nav-links' to="/login">Sign In</Link>
+            </div>
           </div>
         </Form>
         </div>

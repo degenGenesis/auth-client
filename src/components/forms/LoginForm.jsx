@@ -61,11 +61,14 @@ const LoginForm = () => {
             <button className="btn mt-3" type="submit">
               Submit
             </button>
-            <br />
-            <div className="text-center fs-6">
-              <Link className='links' to="/reset">Forgot Password?</Link> 
-                or
-              <Link className='links' to="/register">Sign Up!</Link>
+            <div className="links">
+              <div className="text-center fs-6">
+                <Link className='nav-links' to="/reset">Forgot Password?</Link>
+              </div>
+                  or
+              <div className="text-center fs-6">
+                <Link className='nav-links' to="/register">Sign Up!</Link>
+              </div>
             </div>
           </Form>
         </div>

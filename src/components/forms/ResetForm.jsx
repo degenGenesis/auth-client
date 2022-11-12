@@ -36,8 +36,8 @@ const ResetForm = () => {
     >
       <div className="form-container">
         <div className="wrapper">
-          <Form className='p-3 mt-4'>
-            <h2>We'll email you a link to reset your password.</h2>
+          <Form className='p-3 pt-5 mt-4'>
+            <p className='text-center'>We'll email you a link to reset your password.</p>
 
             {/* Email */}
             <div className="form-field d-flex align-items-center">

@@ -6,8 +6,8 @@ import "../App.css";
 const Landing = () => {
   return (
     <>
-      <div>
-        <h1>Endless possibilities</h1>
+      <div className='landing-bg'>
+        <h1 className='landing-title'>Endless possibilities</h1>
       </div>
       <div>
         <Link to='/register'>Sign Up</Link>

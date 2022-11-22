@@ -7,8 +7,8 @@ import axios from "axios";
 import "../../App.css";
 
 const ResetForm = () => {
-    
-   return (
+  
+  return (
     <Formik
       initialValues={{
         email: "",

@@ -6,13 +6,13 @@ const Navbar = () => {
     <div>
       <nav className='siteNav'>
         <ul>
-          <Link>Home</Link>
-          <Link>Explore</Link>
-          <Link>Notifications</Link>
-          <Link>Messages</Link>
-          <Link>Bookmarks</Link>
-          <Link>Lists</Link>
-          <Link>Profile</Link>
+          <Link to='/home' className='nav-link'>🏠</Link>
+          <Link to='/explore' className='nav-link'>⌗</Link>
+          <Link to='/notifications' className='nav-link'>🔔</Link>
+          <Link to='/messages' className='nav-link'>✉️</Link>
+          <Link to='/bookmarks' className='nav-link'>🔖</Link>
+          <Link to='/lists' className='nav-link'>📃</Link>
+          <Link to='/profile' className='nav-link'>👤</Link>
         </ul>
       </nav> 
     </div>

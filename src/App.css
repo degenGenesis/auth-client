@@ -19,17 +19,79 @@
   text-decoration-skip-ink: "auto";
 } */
 
-.links {
-  text-align: center;
-  margin-top: 30px;
+.landing {
+  /* background: linear-gradient(0.25turn, rgb(157, 0, 255), rgb(254, 220, 2), rgb(255, 104, 212)); */
+  background: radial-gradient(circle, rgb(254, 220, 2) 1%, rgb(255, 104, 212), rgb(157, 0, 255));
+  z-index: 1;
+  padding-bottom: 0.1px;
+  box-shadow: 0px 10px 13px 10px rgba(0, 0, 0, 0.75);
+  border-bottom: rgba(255, 166, 0, 0.699) 5px solid;
 }
+
+.body {
+  border-top: rgba(255, 140, 0, 0.733) 5px solid;
+  box-shadow:-3px -10px 10px rgba(255, 149, 67, 0.881), 3px 3px 3px rgba(255, 149, 67, 0.4);
+}
+
+/* html {font-size: 2px !important;} */
+
+.nav-link {
+  text-align: center;
+  margin-top: 5px;
+  text-decoration: none;
+}
+
+.headerMenu {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+  color: #fff;
+}
+
+.searchBar {
+  flex-shrink: ;
+  width: 20rem;
+  height: 2rem;
+  border-radius: 20px;
+  /* background-color: #03a8f4a4; */
+  background-color: rgba(0, 0, 0, 0.15);
+  text-align: center;
+  box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.30), offset 0 0 5px rgba(0, 0, 0, 0.30);
+}
+
+.menu-toggle {
+  /* display: none; */
+  font-size: 3rem;
+  padding-left: 2rem;
+}
+
+.siteNav ul {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding: 0px 10px;
+  color: #fff ;
+  font-size: xx-small;
+}
+
+.siteNav ul .nav-link:hover {
+  color: #000;
+}
+
+/* ul {
+  list-style: none;
+  text-decoration: none;
+  font-size: 0.1rem;
+} */
 
 .form-container {
     display: flex;
     justify-content: center;
-    background-color: #fefde7;
+    background: linear-gradient(0.5turn, rgba(195, 0, 255, 0.701), rgba(38, 0, 255, 0.975), rgba(3, 8, 43, 0.966));
     width: 100%;
     height: 100vh;
+    z-index: -1;
 }
 
 .text-center {
@@ -41,28 +103,31 @@
     justify-content: center;
     max-width: 350px;
     min-height: 500px;
-    margin: 130px auto;
+    margin: 50px auto;
     padding: 40px 30px 30px 30px;
-    background-color: #ecf0f3;
+    background: linear-gradient(0.5turn, rgb(255, 251, 20), rgb(255, 123, 0));
     border-radius: 15px;
-    box-shadow: 13px 13px 20px #cbced1, -13px -13px 20px #fff;
+    box-shadow: 13px 13px 20px #000000ba, -1px -1px 20px rgb(51, 47, 47);
+}
+
+.landing-bg {
+  width: 100%;
+  height: 100vh;
+  background-image: url('../src/assets/neon sunset.webp');
+  background-size: cover;
 }
 
 .logo {
     width: 80px;
-    margin: auto;
+    /* margin: auto; */
 }
 
-.logo img {
+/* .logo img {
     width: 100%;
     height: 80px;
     object-fit: cover;
     border-radius: 50%;
-    box-shadow: 0px 0px 3px #5f5f5f,
-        0px 0px 0px 5px #ecf0f3,
-        8px 8px 15px #a7aaa7,
-        -8px -8px 15px #fff;
-}
+} */
 
 .wrapper .name {
     display: flex;
@@ -88,10 +153,11 @@
 }
 
 .wrapper .form-field {
+  background: linear-gradient(0.25turn, rgb(157, 0, 255), rgb(254, 220, 2), rgb(255, 104, 212));
     padding-left: 10px;
-    margin-bottom: 20px;
+    margin-bottom: 30px;
     border-radius: 20px;
-    box-shadow: inset 8px 8px 8px #cbced1, inset -8px -8px 8px #fff;
+    box-shadow: inset 2px 5px 5px 5px #393a3ba2, inset -5px -5px 5px 1px rgba(255, 255, 255, 0.644);
 }
 
 .wrapper .form-field .fas {
@@ -102,7 +168,7 @@
     box-shadow: none;
     width: 100%;
     height: 40px;
-    background-color: #03A9F4;
+    background-color: #f40380;
     color: #fff;
     border-radius: 25px;
     box-shadow: 3px 3px 3px #b1b1b1,
@@ -111,17 +177,17 @@
 }
 
 .wrapper .btn:hover {
-    background-color: #039BE5;
+    background-color: #d72158;
 }
 
 .wrapper a {
     text-decoration: none;
     font-size: 0.8rem;
-    color: #03A9F4;
+    color: #f40380;
 }
 
 .wrapper a:hover {
-    color: #039BE5;
+    color: #d72158;
 }
 
 .wrapper .errors {
@@ -133,6 +199,7 @@
 
 .links {
   padding-top: 20px;
+  text-align: center;
 }
 
 @media(max-width: 380px) {

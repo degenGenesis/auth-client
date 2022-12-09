@@ -81,69 +81,67 @@ const handleSubmit = (e) => {
     > 
       <div className='form-container'>
         <div className='wrapper'>     
-        <Form 
-          className='p-3 mt-4'
-        >
-          <h2 className='name'>Sign Up!</h2>        
-          {/* Email */}
-          <div className='form-field d-flex align-items-center'>
-            <label htmlFor='email'>👤</label>
-            <Field             
-              name='email'
-              type='email'
-              placeholder='Enter email' 
-            />
-          </div>
-          <div className='errors'>
-            <ErrorMessage className='errors' name='email' />
-          </div>
-
-          {/* Password */}
-          <div className='form-field d-flex align-items-center'>          
-            <label htmlFor='password'>🔑</label>
-            <Field 
-              name='password'              
-              type='password'
-              placeholder='Enter password' 
-            />
-          </div>
-          <div className='errors'>
-            <ErrorMessage className='errors' name='password' />
-          </div>
-
-          {/* Confirm Password */}
-          <div className='form-field d-flex align-items-center'>          
-            <label htmlFor='confirmPassword'>🔑</label>
-            {/* ---> for use w/ <Formik /> component <--- */}
-            <Field
-              name='confirmPassword'
-              type='password'
-              placeholder='Confirm password' 
-            />
-          </div>
-          <div className='errors'>  
-            <ErrorMessage name='confirmPassword' />
-          </div>
-
-          {/* Submit button */}
-          <button 
-            className='btn mt-3' 
-            type='submit'
-          >
-            Submit
-          </button>
-          <div className="links">
-            <div className='text-center fs-6'>
-              <Link className='nav-links' to="/login">Forgot Password?</Link>
-            </div>or 
-            <div className='text-center fs-6'>
-              <Link className='nav-links' to="/login">Sign In</Link>
+          <Form className='p-3 mt-4'>
+            <h2 className='name'>Sign Up!</h2>        
+            
+            {/* Email */}
+            <div className='form-field d-flex align-items-center'>
+              <label htmlFor='email'>👤</label>
+              <Field             
+                name='email'
+                type='email'
+                placeholder='Enter email' 
+              />
             </div>
-          </div>
-        </Form>
+            <div className='errors'>
+              <ErrorMessage className='errors' name='email' />
+            </div>
+
+            {/* Password */}
+            <div className='form-field d-flex align-items-center'>          
+              <label htmlFor='password'>🔑</label>
+              <Field 
+                name='password'              
+                type='password'
+                placeholder='Enter password' 
+              />
+            </div>
+            <div className='errors'>
+              <ErrorMessage className='errors' name='password' />
+            </div>
+
+            {/* Confirm Password */}
+            <div className='form-field d-flex align-items-center'>          
+              <label htmlFor='confirmPassword'>🔑</label>
+              {/* ---> for use w/ <Formik /> component <--- */}
+              <Field
+                name='confirmPassword'
+                type='password'
+                placeholder='Confirm password' 
+              />
+            </div>
+            <div className='errors'>  
+              <ErrorMessage name='confirmPassword' />
+            </div>
+
+            {/* Submit button */}
+            <button 
+              className='btn mt-3' 
+              type='submit'
+            >
+              Submit
+            </button>
+            <div className="links">
+              <div className='text-center fs-6'>
+                <Link className='nav-links' to="/login">Forgot Password?</Link>
+              </div>or 
+              <div className='text-center fs-6'>
+                <Link className='nav-links' to="/login">Sign In</Link>
+              </div>
+            </div>
+          </Form>
         </div>
-      </div>
-        {/* <RegisterForm />        */}
+      </div>        
     </Formik>
   )
 };

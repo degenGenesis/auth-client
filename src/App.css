@@ -102,9 +102,10 @@
     display: flex;
     justify-content: center;
     max-width: 350px;
+    height: 70%;
     min-height: 500px;
     margin: 50px auto;
-    padding: 40px 30px 30px 30px;
+    padding: 50px 30px 30px 30px;
     background: linear-gradient(0.5turn, rgb(255, 251, 20), rgb(255, 123, 0));
     border-radius: 15px;
     box-shadow: 13px 13px 20px #000000ba, -1px -1px 20px rgb(51, 47, 47);
